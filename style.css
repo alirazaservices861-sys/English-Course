@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -95,11 +95,11 @@
             gap: 8px;
         }
 
-        .nav-links>li {
+        .nav-links > li {
             position: relative;
         }
 
-        .nav-links>li>a {
+        .nav-links > li > a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
@@ -113,7 +113,7 @@
             overflow: hidden;
         }
 
-        .nav-links>li>a::before {
+        .nav-links > li > a::before {
             content: '';
             position: absolute;
             top: 0;
@@ -126,22 +126,22 @@
             z-index: -1;
         }
 
-        .nav-links>li>a:hover {
+        .nav-links > li > a:hover {
             color: white;
             transform: translateY(-2px);
         }
 
-        .nav-links>li>a:hover::before {
+        .nav-links > li > a:hover::before {
             opacity: 1;
         }
 
-        .nav-links>li>a .arrow {
+        .nav-links > li > a .arrow {
             margin-left: 8px;
             font-size: 0.8rem;
             transition: transform 0.3s ease;
         }
 
-        .nav-links>li:hover>a .arrow {
+        .nav-links > li:hover > a .arrow {
             transform: rotate(180deg);
         }
 
@@ -182,7 +182,7 @@
             background: var(--gradient);
         }
 
-        .nav-links>li:hover .mega-menu {
+        .nav-links > li:hover .mega-menu {
             display: grid;
             opacity: 1;
             transform: translateY(0) scale(1);
@@ -471,6 +471,30 @@
             font-size: 1rem;
         }
 
+        /* Content Sections for Navigation */
+        .page-section {
+            min-height: 400px;
+            padding: 60px 40px;
+            margin: 30px 0;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-light);
+        }
+
+        .page-section h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        .page-section p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -485,7 +509,7 @@
             .mega-menu {
                 width: 800px;
             }
-
+            
             .hero h1 {
                 font-size: 3rem;
             }
@@ -498,15 +522,15 @@
                 left: 50%;
                 transform: translateX(-50%) translateY(15px) scale(0.98);
             }
-
-            .nav-links>li:hover .mega-menu {
+            
+            .nav-links > li:hover .mega-menu {
                 transform: translateX(-50%) translateY(0) scale(1);
             }
-
+            
             .mega-menu-featured {
                 grid-column: span 2;
             }
-
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -516,15 +540,15 @@
             body {
                 padding-top: 80px;
             }
-
+            
             .navbar {
                 padding: 15px 0;
             }
-
+            
             .menu-toggle {
                 display: flex;
             }
-
+            
             .nav-links {
                 position: fixed;
                 top: 80px;
@@ -535,33 +559,39 @@
                 align-items: stretch;
                 padding: 20px;
                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
+                /* hidden off-screen and non-interactive */
+                transform: translateY(-120%);
                 opacity: 0;
-                transition: var(--transition);
+                visibility: hidden;
+                pointer-events: none;
+                transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease;
                 z-index: 999;
                 max-height: calc(100vh - 80px);
                 overflow-y: auto;
                 border-radius: 0 0 var(--radius) var(--radius);
                 border-top: 1px solid var(--gray-light);
+                will-change: transform, opacity;
             }
-
+            
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
             }
-
-            .nav-links>li {
+            
+            .nav-links > li {
                 margin: 5px 0;
             }
-
-            .nav-links>li>a {
+            
+            .nav-links > li > a {
                 padding: 16px 20px;
                 font-size: 1.1rem;
                 width: 100%;
                 justify-content: space-between;
                 border-radius: 10px;
             }
-
+            
             .mega-menu {
                 position: static;
                 display: none;
@@ -576,18 +606,18 @@
                 margin-top: 10px;
                 border: 1px solid var(--gray-light);
             }
-
+            
             .mega-menu.active {
                 display: grid;
             }
-
+            
             .mega-menu-featured {
                 grid-column: span 1;
                 flex-direction: column;
                 text-align: center;
                 padding: 20px;
             }
-
+            
             .mega-menu-img {
                 margin-right: 0;
                 margin-bottom: 20px;
@@ -596,42 +626,42 @@
                 height: auto;
                 aspect-ratio: 1/1;
             }
-
-            .nav-links>li:hover .mega-menu {
+            
+            .nav-links > li:hover .mega-menu {
                 display: none;
             }
-
+            
             .cta-button {
                 margin: 20px 0 0 0;
                 width: 100%;
                 justify-content: center;
             }
-
+            
             /* Hamburger Animation */
             .menu-toggle.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
             }
-
+            
             .menu-toggle.active span:nth-child(2) {
                 opacity: 0;
             }
-
+            
             .menu-toggle.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -6px);
             }
-
+            
             .hero {
                 padding: 60px 0 40px;
             }
-
+            
             .hero h1 {
                 font-size: 2.2rem;
             }
-
+            
             .hero p {
                 font-size: 1.1rem;
             }
-
+            
             .demo-section {
                 padding: 30px 20px;
             }
@@ -641,21 +671,21 @@
             .logo-text {
                 font-size: 1.5rem;
             }
-
+            
             .logo-icon {
                 width: 36px;
                 height: 36px;
                 font-size: 1rem;
             }
-
+            
             .hero h1 {
                 font-size: 1.8rem;
             }
-
+            
             .demo-section h2 {
                 font-size: 1.6rem;
             }
-
+            
             .feature-card {
                 padding: 25px 20px;
             }
